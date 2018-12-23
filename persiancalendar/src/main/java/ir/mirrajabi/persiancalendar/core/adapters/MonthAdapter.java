@@ -9,8 +9,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
 
+import de.hdodenhof.circleimageview.CircleImageView;
 import ir.mirrajabi.persiancalendar.R;
 import ir.mirrajabi.persiancalendar.core.Constants;
 import ir.mirrajabi.persiancalendar.core.PersianCalendarHandler;
@@ -52,6 +55,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> 
         View mToday;
         View mSelectDay;
         View mEvent;
+        CircleImageView mEventImageView;
 
         public ViewHolder(View itemView) {
             super(itemView);
@@ -60,6 +64,7 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> 
             mToday = itemView.findViewById(R.id.today);
             mSelectDay = itemView.findViewById(R.id.select_day);
             mEvent = itemView.findViewById(R.id.event);
+            mEventImageView = itemView.findViewById(R.id.event_image);
 
             itemView.setOnClickListener(this);
             itemView.setOnLongClickListener(this);
@@ -137,9 +142,10 @@ public class MonthAdapter extends RecyclerView.Adapter<MonthAdapter.ViewHolder> 
 
                 Day day = mDays.get(position - 7 - mFirstDayOfWeek);
                 if (day.isEvent()) {
-                    if(day.isLocalEvent() && mCalendarHandler.isHighlightingLocalEvents())
+                    if(day.isLocalEvent() && mCalendarHandler.isHighlightingLocalEvents()) {
                         holder.mEvent.setVisibility(View.VISIBLE);
-                    else if(!day.isLocalEvent() && mCalendarHandler.isHighlightingOfficialEvents())
+                        Picasso.get().load(day.getPath()).into(holder.mEventImageView);
+                    } else if(!day.isLocalEvent() && mCalendarHandler.isHighlightingOfficialEvents())
                         holder.mEvent.setVisibility(View.VISIBLE);
                     else holder.mEvent.setVisibility(View.GONE);
                 } else {

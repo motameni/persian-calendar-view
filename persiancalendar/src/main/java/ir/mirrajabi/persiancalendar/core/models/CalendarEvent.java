@@ -9,11 +9,19 @@ public class CalendarEvent {
     private PersianDate mDate;
     private String mTitle;
     private boolean mHoliday;
+    private String mPath;
 
     public CalendarEvent(PersianDate date, String title, boolean holiday) {
         this.mDate = date;
         this.mTitle = title;
         this.mHoliday = holiday;
+    }
+
+    public CalendarEvent(PersianDate date, String title, boolean holiday, String path) {
+        this.mDate = date;
+        this.mTitle = title;
+        this.mHoliday = holiday;
+        this.mPath = path;
     }
 
     public PersianDate getDate() {
@@ -38,5 +46,13 @@ public class CalendarEvent {
 
     public void setHoliday(boolean holiday) {
         this.mHoliday = holiday;
+    }
+
+    public String getPath() {
+        return mPath;
+    }
+
+    public void setPath(String mPath) {
+        this.mPath = mPath;
     }
 }

@@ -330,9 +330,14 @@ public class PersianCalendarHandler {
                     day.setHoliday(true);
                 }
 
-                if (mHighlightLocalEvents)
-                    if (getLocalEventsForDay(persianDate).size() > 0)
+                if (mHighlightLocalEvents) {
+                    List<CalendarEvent> eventList = getLocalEventsForDay(persianDate);
+                    if (eventList.size() > 0) {
                         day.setEvent(true, true);
+                        day.setPath(eventList.get(0).getPath());
+                    }
+                }
+
                 if (mHighlightOfficialEvents)
                     if (getOfficialEventsForDay(persianDate).size() > 0)
                         day.setEvent(true, false);

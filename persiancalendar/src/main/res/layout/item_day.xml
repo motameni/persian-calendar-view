@@ -40,4 +40,11 @@
         android:background="@color/selectDay"
         android:id="@+id/event"/>
 
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:layout_width="38sp"
+        android:layout_height="38sp"
+        android:id="@+id/event_image"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"/>
+
 </RelativeLayout>

@@ -8,6 +8,7 @@ public class Day {
     private PersianDate mPersianDate;
     private boolean mEvent;
     private boolean mLocalEvent;
+    private String mPath;
 
     public boolean isEvent() {
         return mEvent;
@@ -70,5 +71,13 @@ public class Day {
 
     public void setPersianDate(PersianDate persianDate) {
         this.mPersianDate = persianDate;
+    }
+
+    public String getPath() {
+        return mPath;
+    }
+
+    public void setPath(String mPath) {
+        this.mPath = mPath;
     }
 }
