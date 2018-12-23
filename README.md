@@ -1,9 +1,5 @@
 # PersianCalendarView - تقویم فارسی اندروید
-[![](https://jitpack.io/v/mirrajabi/persian-calendar-view.svg)](https://jitpack.io/#mirrajabi/persian-calendar-view)
-[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-Persian%20Calendar%20View-brightgreen.svg?style=flat)](https://android-arsenal.com/details/1/5460) <a href="http://www.methodscount.com/?lib=com.github.mirrajabi%3Apersian-calendar-view%3A1.1.1"><img src="https://img.shields.io/badge/Methods and size-core: 397 | 144 KB-e91e63.svg"/></a>
-
-
-[![CircleCI](https://circleci.com/gh/mirrajabi/persian-calendar-view.svg?style=svg)](https://circleci.com/gh/mirrajabi/persian-calendar-view)
+[![](https://jitpack.io/v/motameni/persian-calendar-view.svg)](https://jitpack.io/#motameni/persian-calendar-view)
 
 Persian calendar view for android based on [ebraminio](https://github.com/ebraminio)'s [DroidPersianCalendar](https://github.com/ebraminio/DroidPersianCalendar) open-source project.
 
@@ -15,14 +11,14 @@ First add jitpack to your projects build.gradle file
 allprojects {
     repositories {
         ...
-        maven { url "https://jitpack.io" }
-   	}
+        maven { url 'https://jitpack.io' }
+    }
 }
 ```
 Then add the dependency in modules build.gradle file
 ```groovy
 dependencies {
-    compile 'com.github.roojin:persian-calendar-view:1.2.2'
+        implementation 'com.github.motameni:persian-calendar-view:1.3.0'
 }
 ```
 now just simply add PersianCalendarView to your layouts
@@ -74,9 +70,11 @@ The library includes official events but you can also add your own events to it
 ```java
 // Add an event called "Custom event" to this day
 calendarHandler.addLocalEvent(new CalendarEvent(calendar.getToday(), "Custom event", false));
-// Add an event called "Custom event 2" to 12 days later
+// Add an event called "Custom event2" to this day with custom image url
+calendarHandler.addLocalEvent(new CalendarEvent(calendar.getToday(), "Custom event", false, imageUrl));
+// Add an event called "Custom event 3" to 12 days later
 calendarHandler.addLocalEvent(new CalendarEvent(today.clone().rollDay(12,true), "Custom event 2", true));
-// Add an event called "Custom event 3" to 1399/1/10 later
+// Add an event called "Custom event 4" to 1399/1/10 later
 calendarHandler.addLocalEvent(new CalendarEvent(new PersianDate(1399,1,10), "Custom event 2", true));
 ```
 #### Getting events for specific day
